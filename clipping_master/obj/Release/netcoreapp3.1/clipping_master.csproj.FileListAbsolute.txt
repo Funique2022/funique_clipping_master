@@ -1,0 +1,17 @@
+C:\Users\funique\Documents\GitHub\clipping_master\clipping_master\bin\Release\netcoreapp3.1\clipping_master.exe
+C:\Users\funique\Documents\GitHub\clipping_master\clipping_master\bin\Release\netcoreapp3.1\clipping_master.deps.json
+C:\Users\funique\Documents\GitHub\clipping_master\clipping_master\bin\Release\netcoreapp3.1\clipping_master.runtimeconfig.json
+C:\Users\funique\Documents\GitHub\clipping_master\clipping_master\bin\Release\netcoreapp3.1\clipping_master.runtimeconfig.dev.json
+C:\Users\funique\Documents\GitHub\clipping_master\clipping_master\bin\Release\netcoreapp3.1\clipping_master.dll
+C:\Users\funique\Documents\GitHub\clipping_master\clipping_master\bin\Release\netcoreapp3.1\clipping_master.pdb
+C:\Users\funique\Documents\GitHub\clipping_master\clipping_master\bin\Release\netcoreapp3.1\clipping_master.Core.dll
+C:\Users\funique\Documents\GitHub\clipping_master\clipping_master\bin\Release\netcoreapp3.1\clipping_master.Core.pdb
+C:\Users\funique\Documents\GitHub\clipping_master\clipping_master\obj\Release\netcoreapp3.1\clipping_master.csproj.AssemblyReference.cache
+C:\Users\funique\Documents\GitHub\clipping_master\clipping_master\obj\Release\netcoreapp3.1\clipping_master.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\funique\Documents\GitHub\clipping_master\clipping_master\obj\Release\netcoreapp3.1\clipping_master.AssemblyInfoInputs.cache
+C:\Users\funique\Documents\GitHub\clipping_master\clipping_master\obj\Release\netcoreapp3.1\clipping_master.AssemblyInfo.cs
+C:\Users\funique\Documents\GitHub\clipping_master\clipping_master\obj\Release\netcoreapp3.1\clipping_master.csproj.CoreCompileInputs.cache
+C:\Users\funique\Documents\GitHub\clipping_master\clipping_master\obj\Release\netcoreapp3.1\clipping_master.csproj.CopyComplete
+C:\Users\funique\Documents\GitHub\clipping_master\clipping_master\obj\Release\netcoreapp3.1\clipping_master.dll
+C:\Users\funique\Documents\GitHub\clipping_master\clipping_master\obj\Release\netcoreapp3.1\clipping_master.pdb
+C:\Users\funique\Documents\GitHub\clipping_master\clipping_master\obj\Release\netcoreapp3.1\clipping_master.genruntimeconfig.cache
