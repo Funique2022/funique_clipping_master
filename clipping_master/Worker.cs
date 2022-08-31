@@ -171,7 +171,7 @@ namespace ffmpeg_helper
             }
             File.WriteAllText("c.txt", d);
 
-            string coder = string.IsNullOrEmpty(target.encoder) ? "target.encoder" : "copy";
+            string coder = string.IsNullOrEmpty(target.encoder) ? "copy" : target.encoder;
             string arg = $"-f concat -safe 0 -i c.txt -c {coder} -y \"{data.header.output.Replace('\\', '/')}\"";
             Console.WriteLine($"arg: {arg}");
             ProcessStartInfo info = new ProcessStartInfo("ffmpeg.exe", arg);
