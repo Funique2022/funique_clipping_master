@@ -1,0 +1,7 @@
+C:\Users\funique\Documents\GitHub\clipping_master\bin\Release\netcoreapp3.1\publish\clipping_master.exe
+C:\Users\funique\Documents\GitHub\clipping_master\bin\Release\netcoreapp3.1\publish\clipping_master.dll
+C:\Users\funique\Documents\GitHub\clipping_master\bin\Release\netcoreapp3.1\publish\clipping_master.deps.json
+C:\Users\funique\Documents\GitHub\clipping_master\bin\Release\netcoreapp3.1\publish\clipping_master.runtimeconfig.json
+C:\Users\funique\Documents\GitHub\clipping_master\bin\Release\netcoreapp3.1\publish\clipping_master.pdb
+C:\Users\funique\Documents\GitHub\clipping_master\bin\Release\netcoreapp3.1\publish\clipping_master.Core.dll
+C:\Users\funique\Documents\GitHub\clipping_master\bin\Release\netcoreapp3.1\publish\clipping_master.Core.pdb

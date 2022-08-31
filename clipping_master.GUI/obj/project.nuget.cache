@@ -1,0 +1,35 @@
+{
+  "version": 2,
+  "dgSpecHash": "fSMPqzhQlSk1i86RPkwCbdAgwnw9MKRWohUGZ1y+OoPHaMfwsu0yRVFqfVNFBThpBF4mbwAycqcXWC4PuMynPA==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\funique\\Documents\\GitHub\\clipping_master\\clipping_master.GUI\\clipping_master.GUI.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\funique\\.nuget\\packages\\libvlcsharp\\3.6.6\\libvlcsharp.3.6.6.nupkg.sha512",
+    "C:\\Users\\funique\\.nuget\\packages\\libvlcsharp.wpf\\3.6.6\\libvlcsharp.wpf.3.6.6.nupkg.sha512",
+    "C:\\Users\\funique\\.nuget\\packages\\videolan.libvlc.windows\\3.0.17.4\\videolan.libvlc.windows.3.0.17.4.nupkg.sha512",
+    "C:\\Users\\funique\\.nuget\\packages\\windowsapicodepack-core\\1.1.2\\windowsapicodepack-core.1.1.2.nupkg.sha512",
+    "C:\\Users\\funique\\.nuget\\packages\\windowsapicodepack-shell\\1.1.1\\windowsapicodepack-shell.1.1.1.nupkg.sha512"
+  ],
+  "logs": [
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'WindowsAPICodePack-Core 1.1.2' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' instead of the project target framework '.NETCoreApp,Version=v3.1'. This package may not be fully compatible with your project.",
+      "libraryId": "WindowsAPICodePack-Core",
+      "targetGraphs": [
+        ".NETCoreApp,Version=v3.1"
+      ]
+    },
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'WindowsAPICodePack-Shell 1.1.1' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' instead of the project target framework '.NETCoreApp,Version=v3.1'. This package may not be fully compatible with your project.",
+      "libraryId": "WindowsAPICodePack-Shell",
+      "targetGraphs": [
+        ".NETCoreApp,Version=v3.1"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,110 @@
+﻿<Window x:Class="ffmpeg_helper.GUI.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:vlc="clr-namespace:LibVLCSharp.WPF;assembly=LibVLCSharp.WPF"
+        xmlns:local="clr-namespace:ffmpeg_helper.GUI"
+        mc:Ignorable="d"
+        Loaded="Window_Loaded"
+        Width="{Binding WindowWidth, Mode=TwoWay}"
+        Title="Clipping Master" MinHeight="600" MinWidth="600" Style="{DynamicResource CustomWindowStyle}">
+    <Window.DataContext>
+        <local:WindowDataContext />
+    </Window.DataContext>
+    <Grid>
+        <!-- Main Frame -->
+        <Grid.RowDefinitions>
+            <RowDefinition Height="350" />
+            <RowDefinition Height="40" />
+            <RowDefinition Height="40" />
+            <RowDefinition Height="30" />
+            <RowDefinition Height="30" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <!-- Video Player -->
+        <vlc:VideoView Grid.Row="0" Margin="0 20 0 0" x:Name="BackgroundVideo" RenderOptions.EdgeMode="Aliased" />
+        <!-- Video Player Controller -->
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Button Grid.Column="0" Margin="5, 5" Content="Mark Start" Name="MarkStartButton" Click="MarkStartButton_Click" />
+            <Button Grid.Column="1" Margin="5, 5" Content="Play" Name="PlayButton" Click="PlayButton_Click" />
+            <Button Grid.Column="2" Margin="5, 5" Content="Pause" Name="PauseButton" Click="PauseButton_Click" />
+            <Button Grid.Column="3" Margin="5, 5" Content="Stop" Name="StopButton" Click="StopButton_Click" />
+            <Button Grid.Column="4" Margin="5, 5" Content="Mark End" Name="MarkEndButton" Click="MarkEndButton_Click" />
+        </Grid>
+        <!-- Video Player Timecode Controller -->
+        <Grid Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Button Grid.Column="0" Margin="5, 5" Content="-min" Name="DecreaseMin" Click="DecreaseMin_Click" />
+            <Button Grid.Column="1" Margin="5, 5" Content="-second" Name="DecreaseSec" Click="DecreaseSec_Click" />
+            <Button Grid.Column="2" Margin="5, 5" Content="-tick" Name="DecreaseTick" Click="DecreaseTick_Click" />
+            <Button Grid.Column="3" Margin="5, 5" Content="+tick" Name="IncreaseTick" Click="IncreaseTick_Click" />
+            <Button Grid.Column="4" Margin="5, 5" Content="+second" Name="IncreaseSec" Click="IncreaseSec_Click" />
+            <Button Grid.Column="5" Margin="5, 5" Content="+min" Name="IncreaseMin" Click="IncreaseMin_Click" />
+        </Grid>
+        <!-- Video Player Timecode Slider Controller -->
+        <Slider Grid.Row="3" VerticalAlignment="Center" Margin="30, 0" Minimum="0" Maximum="{Binding Duration}" Value="{Binding TimePosition, Mode=TwoWay}" Name="TimeSplider" Thumb.DragStarted="TimeSplider_DragStarted" Thumb.DragCompleted="TimeSplider_DragCompleted" />
+        <Border Grid.Row="3" BorderThickness="1" BorderBrush="IndianRed"  Margin="{Binding RangeMargin}" Visibility="{Binding RangeVisibility}">
+            
+        </Border>
+        <!-- Video Player Timecode Text Display -->
+        <Label Grid.Row="4" VerticalAlignment="Center" FontSize="18" Content="{Binding TimeCode}" HorizontalAlignment="Center" Margin="30, 0" />
+        <!-- Content -->
+        <Grid Grid.Row="5">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <ListBox Grid.Column="0" Name="ClipList" Margin="10" SelectionChanged="ClipList_SelectionChanged">
+                <ListBox.ContextMenu>
+                    <ContextMenu>
+                        <MenuItem Header="Add New" Name="AddNewClip" Click="AddNewClip_Click" />
+                        <MenuItem Header="Clean" Name="CleanAllClip" Click="CleanAllClip_Click" />
+                    </ContextMenu>
+                </ListBox.ContextMenu>
+            </ListBox>
+            <StackPanel Grid.Column="1" Margin="10" Orientation="Vertical" ScrollViewer.VerticalScrollBarVisibility="Visible" Visibility="{Binding ContentVisibility}">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="75" />
+                        <ColumnDefinition Width="25" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="30" />
+                        <RowDefinition Height="30" />
+                    </Grid.RowDefinitions>
+                    <Label Grid.Row="0" Grid.Column="0" Content="Start" HorizontalAlignment="Center" />
+                    <Label Grid.Row="1" Grid.Column="0" Content="End" HorizontalAlignment="Center" />
+
+                    <Button Grid.Row="0" Grid.Column="1" Content="Go" Name="GoToStart" Click="GoToStart_Click" />
+                    <Button Grid.Row="1" Grid.Column="1" Content="Go" Name="GoToEnd" Click="GoToEnd_Click" />
+
+                    <TextBox Grid.Row="0" Grid.Column="2" Name="StartVar" IsEnabled="False" VerticalAlignment="Center" Padding="10, 0" Text="{Binding SelectRange.StartString}" />
+                    <TextBox Grid.Row="1" Grid.Column="2" Name="EndVar" IsEnabled="False" VerticalAlignment="Center" Padding="10, 0" Text="{Binding SelectRange.EndString}" />
+                </Grid>
+            </StackPanel>
+        </Grid>
+        <Menu>
+            <MenuItem Header="File" Padding="15 3">
+                <MenuItem Header="Open Video" Padding="15 3" Name="OpenVideo" Click="OpenVideo_Click" />
+                <MenuItem Header="Export" Padding="15 3" Name="Export" Click="Export_Click" />
+                <MenuItem Header="Exit" Padding="15 3" Name="Exit" Click="Exit_Click" />
+            </MenuItem>
+        </Menu>
+    </Grid>
+</Window>
