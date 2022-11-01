@@ -49,15 +49,6 @@ namespace ffmpeg_helper.GUI
                 "--input-repeat=2"
             };
         private MediaPlayer sourceProvider;
-        private Dictionary<int, string> SelectEncoderDict = new Dictionary<int, string>()
-        {
-            { 0, null },
-            { 1, "libx264" },
-            { 2, "libx265" },
-            { 3, "qtrle" },
-            { 4, "v410" },
-            { 5, "wmv2" },
-        };
 
         public MainWindow()
         {
@@ -211,7 +202,7 @@ namespace ffmpeg_helper.GUI
                 }
                 ctx.Dist = v;
                 int selectIndex = selectFile.FilterIndex - 1;
-                string encoder = SelectEncoderDict[selectIndex];
+                string encoder = CodecMap.Dict[(CodecType)selectIndex];
                 Header header = new Header()
                 {
                     filename = ctx.Source,
@@ -225,7 +216,7 @@ namespace ffmpeg_helper.GUI
                 {
                     cuts[i] = new Action()
                     {
-                        type = "Cut",
+                        type = ActionType.Cut,
                         start = range[i].Start.ToString(@"hh\:mm\:ss"),
                         end = range[i].End.ToString(@"hh\:mm\:ss")
                     };
@@ -233,13 +224,13 @@ namespace ffmpeg_helper.GUI
                 Debug.WriteLine($"codecs: {encoder}");
                 Action mergeA = new Action()
                 {
-                    type = "Merge",
+                    type = ActionType.Merge,
                     all = true,
                     encoder = encoder
                 };
                 twojob[0] = new Job()
                 {
-                    type = 1,
+                    type = ThreadType.Multiple,
                     actions = new Actions() { action = new List<Action>(cuts) }
                 };
                 twojob[1] = new Job()
