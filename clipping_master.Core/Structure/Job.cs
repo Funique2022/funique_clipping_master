@@ -16,7 +16,7 @@ namespace ffmpeg_helper
         /// 1: Multiple
         /// </summary>
         [XmlElement("type")]
-        public int type { set; get; }
+        public ThreadType type { set; get; }
         [XmlElement("action", IsNullable = true)]
         public Nullable<Action> action { set; get; }
         [XmlElement("actions", IsNullable = true)]

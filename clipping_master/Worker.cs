@@ -42,11 +42,11 @@ namespace ffmpeg_helper
             ext = Path.GetExtension(data.header.filename);
             foreach (var i in data.jobs.job)
             {
-                if(i.type == 0)
+                if(i.type == ThreadType.Single)
                 {
                     Single(i);
                 }
-                else if(i.type == 1)
+                else if(i.type == ThreadType.Multiple)
                 {
                     Multiple(i);
                 }
@@ -68,14 +68,14 @@ namespace ffmpeg_helper
                 return false;
             }
 
-            switch (a.type.ToLower())
+            switch (a.type)
             {
-                case "cut":
+                case ActionType.Cut:
                     index++;
                     string output_name = string.IsNullOrEmpty(a.name) ? $"temp_{index}{ext}" : a.name;
                     Cut(a, index, output_name);
                     break;
-                case "merge":
+                case ActionType.Merge:
                     Merge(a);
                     break;
             }
@@ -107,9 +107,9 @@ namespace ffmpeg_helper
                     continue;
                 }
 
-                switch (i.type.ToLower())
+                switch (i.type)
                 {
-                    case "cut":
+                    case ActionType.Cut:
                         index++;
                         string output_name = string.IsNullOrEmpty(i.name) ? $"temp_{index}.{ext}" : i.name;
                         tasks.Add(CutAsync(i, index, output_name));
@@ -182,11 +182,11 @@ namespace ffmpeg_helper
 
         bool VaildAction(Action target, int job_type)
         {
-            switch (target.type.ToLower())
+            switch (target.type)
             {
-                case "cut":
+                case ActionType.Cut:
                     return IsTimeCode(target.start) && (IsTimeCode(target.end) || IsTimeCode(target.length));
-                case "merge":
+                case ActionType.Merge:
                     return job_type == 0 && (target.all.HasValue ? (target.all.Value ? true : target.files.HasValue) : target.files.HasValue);
             }
             return true;

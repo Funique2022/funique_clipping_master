@@ -16,7 +16,7 @@ namespace ffmpeg_helper
         /// merge: merge temp folder multiple clip
         /// </summary>
         [XmlElement("type", IsNullable = true)]
-        public string type { set; get; }
+        public ActionType type { set; get; }
         [XmlElement("start", IsNullable = true)]
         public string start { set; get; }
         [XmlElement("end", IsNullable = true)]
